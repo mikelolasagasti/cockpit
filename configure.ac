@@ -107,7 +107,7 @@ AC_SUBST(COCKPIT_POLKIT_CFLAGS)
 AC_SUBST(COCKPIT_POLKIT_LIBS)
 
 # whether to build cockpit-ws
-AC_ARG_ENABLE(ws, AC_HELP_STRING([--disable-ws], [Disable cockpit-ws build]))
+AC_ARG_ENABLE(ws, AS_HELP_STRING([--disable-ws], [Disable cockpit-ws build]))
 
 AC_MSG_CHECKING([build with cockpit-ws])
 if test "$enable_ws" != "no"; then
@@ -140,7 +140,7 @@ REAUTHORIZE_LIBS="$REAUTHORIZE_LIBS $PAM_LIBS"
 
 # pam module directory
 AC_ARG_WITH([pamdir],
-            [AC_HELP_STRING([--with-pamdir=DIR],
+            [AS_HELP_STRING([--with-pamdir=DIR],
                              [directory to install pam modules in])],
              [], [with_pamdir='${libdir}/security'])
 pamdir=$with_pamdir
@@ -168,7 +168,7 @@ REAUTHORIZE_LIBS="$REAUTHORIZE_LIBS -lcrypt"
 
 # pcp
 AC_MSG_CHECKING([whether to build with PCP])
-AC_ARG_ENABLE(pcp, AC_HELP_STRING([--disable-pcp], [Disable usage of PCP]))
+AC_ARG_ENABLE(pcp, AS_HELP_STRING([--disable-pcp], [Disable usage of PCP]))
 
 if test "$enable_pcp" = "no"; then
   AC_MSG_RESULT($enable_pcp)
@@ -308,7 +308,7 @@ AC_CHECK_FUNCS(fdwalk)
 
 AC_MSG_CHECKING([for asan flags])
 AC_ARG_ENABLE(asan,
-              AC_HELP_STRING([--enable-asan=no/yes],
+              AS_HELP_STRING([--enable-asan=no/yes],
                              [Turn the Address Sanitizer on or off])
              )
 
@@ -361,7 +361,7 @@ AC_SUBST(COCKPIT_SELINUX_CONFIG_TYPE)
 
 AC_MSG_CHECKING([whether to build documentation])
 AC_ARG_ENABLE(doc,
-              AC_HELP_STRING([--disable-doc],
+              AS_HELP_STRING([--disable-doc],
                              [Disable building documentation])
              )
 
@@ -396,7 +396,7 @@ AM_CONDITIONAL([ENABLE_DOC], [test "$enable_doc" = "yes"])
 
 AC_MSG_CHECKING([for branding directory])
 AC_ARG_WITH(branding,
-            AC_HELP_STRING([--with-branding=default],
+            AS_HELP_STRING([--with-branding=default],
                            [Specify which branding to use.  A value of "auto" means to detect it at run-time.])
 )
 BRAND=${with_branding:-default}
@@ -409,7 +409,7 @@ fi
 
 AC_MSG_CHECKING([for debug mode])
 AC_ARG_ENABLE(debug,
-              AC_HELP_STRING([--enable-debug=no/default/yes],
+              AS_HELP_STRING([--enable-debug=no/default/yes],
                              [Turn on or off debugging])
              )
 
